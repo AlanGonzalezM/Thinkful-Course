@@ -1,0 +1,19 @@
+#container {
+    background-color: azure;
+    border: 1px solid aquamarine;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 60px;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
+
+a[href^="mailto"]::before {
+    content: "📧 ";
+}
+
+a[href^="tel"]::before {
+    content: "📞 ";
+}
