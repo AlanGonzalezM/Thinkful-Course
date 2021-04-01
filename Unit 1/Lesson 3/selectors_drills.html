@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="selectors_drill.css">
+    <title>Target Practice: CSS selector drills</title>
+</head>
+<body>
+    <main>
+        <!--
+            Drill one:
+
+            The element selector just consists of the element you want to target. Straightforward stuff.
+
+            To complete the drill for element selectors below, you'll need to target section elements and h1 elements. Specifically:
+
+            -Write one ruleset for sections that gives them a bottom margin of 90px
+            -Write one ruleset for header elements that sets font-family to Helvetica.
+        -->
+        <h1>1) Element selectors</h1>
+        <section>
+            <header>
+              <h1>Really important section header</h1>
+              <hr/>
+            </header>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia quasi, voluptate fuga, perferendis, beatae quam.</p>
+        </section>
+        
+        <section>
+            <header>
+              <h1>Really important section header</h1>
+              <hr/>
+            </header>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia quasi, voluptate fuga, perferendis, beatae quam.</p>
+        </section>
+
+        <!--
+            Drill two:
+
+            Sometimes to implement a design, you'll need to target elements that have two or more classes. Let's say we want to target all elements that have both the .foo and .bar classes, we could do:
+
+            .foo.bar {
+                /* make some rules */
+            }
+
+            And if you needed to target only paragraphs that had both .foo and .bar, you could do:
+
+            p.foo.bar {
+                /* make some rules */
+            }
+
+            When you need to target a combination like this, the rule is, if an element is part of the target, put it first. Then, chain together the classes you want to target.
+
+            To complete the drill for element selectors below, you'll need to target elements that have both the .box and .green classes. These elements should get a red border.
+        -->
+        
+        <h1>2) Combinations</h1>
+        <div class='box width-200 height-100 blue'></div>
+        <div class='box width-200 height-100 red'></div>
+        <div class='box width-200 height-100 green bordered'></div>
+
+        <!--
+            Drill three:
+
+            Let's say you want to target elements that have either .foo or .bar, or both .bizz and .bang. To target multiple selectors with the same ruleset, just separate your selectors with commas:
+
+            .foo, .bar, .bizz.bang {
+                /* make the rules */
+            }
+
+            To complete the drill, you'll need to write a single ruleset that targets elements that either have both the .box and .foo classes, or elements that have both the .circle and .bar classes. These elements should get a solid 2px black border.
+
+            You'll know you've targeted correctly when the blue and green boxes and blue and green circles have a black border.
+        -->
+
+        <h1>3) Multiple Selectors</h1>
+        <div class='row'>
+            <div class='box purple foo'></div>
+            <div class='box yellow bar'></div>
+            <div class='box orange foo'></div>
+        </div>
+        <div class='row'>
+            <div class='circle purple bar'></div>
+            <div class='circle yellow foo'></div>
+            <div class='circle orange bar'></div>
+        </div>
+
+        <!--
+            Drill four:
+
+            Sometimes you need to target elements that are children of another element. For instance you might want to target all paragraphs that appear within aside elements:
+
+            aside p {
+                /* make rules */
+            }
+
+            This snippet uses a descendant selector, which will target all children of an aside that are paragraphs. Descendant selectors target children of the parent element whether they're immediate children, or further down the hierarchy. In the following code snippet, the first paragraph and the second one (appearing inside div.alert) would be selected by aside p {...}.
+
+            <aside>
+            <p>The quick brown fox jumps over the lazy dog.</p>
+
+            <div class='alert'>
+                <h3>Pay attention!</h3>
+                <p>Because the quick brown fox jumps over the lazy dog.</p>
+            </div>
+            </aside>
+
+            Sometimes we need to target only elements that are direct children of an element. For that we can use the direct child selector:
+
+            aside > p {
+                /* make rules */
+            }
+
+            This rule would target the first paragraph in the HTML snippet above, but not the paragraph inside div.alert.
+
+            To complete the drill below, you'll need to write two rulesets. The first should target all list items that are descendants of an element with the .foo class. The second should target all list items that are direct children of the.bar class.
+
+            In the end result, the first two list items on the page ("foo" and "bar") should have 1px solid red borders, but not the second two ("bizz and bang"). In the numbered list, all first level list items should have a 1px solid green border, but the second level ones (that is, the steps for washing fruits and veggies) should not.
+        -->
+
+        <h1>4) Descendant and Direct Child Selectors</h1>
+        <ul class='descendant'>
+            <li>food</li>
+            <li>bard</li>
+        </ul>
+        <ul>
+            <li>bizz</li>
+            <li>bang</li>
+        </ul>
+        <ol class='direct-child'>
+            <li>Buy fruits and vegetables.</li>
+            <li>
+              Wash fruits and vegetables.
+              <ol>
+                <li>turn on faucet</li>
+                <li>put f/v under water</li>
+                <li>scrub</li>
+              </ol>
+            </li>
+            <li>Eat fruits and vegetables.</li>
+            <li>Enjoy better wellbeing.</li>
+        </ol>
+
+        <!--
+            Drill five:
+
+            The ::before and ::after pseudolements allow you to render content just before or after your element. This technique is great for creating smart quotes around block quotes (which you'll have to do in the drill below). More broadly, writing ::before and ::after style rules can be a good way to handle repeated visual content that surrounds an element.
+
+            Here, we use ul li::before to set a custom icon from FontAwesome for bullet points:
+
+            ul {
+            list-style: none;
+            }
+
+            ul li {
+            line-height: 20px;
+            margin-bottom: 10px;
+            }
+
+            ul li::before {
+            content: "\f121";
+            font-family: FontAwesome;
+            color: green;
+            font-size: 20px;
+            margin-right: 5px;
+            }
+
+            Inspecting the CSS, you can see that we've set the content: "\f121" and font-family: FontAwesome. \f121 is the unicode value for the FontAwesome code icon. We've set its color to green, its font-size to 20px, and given it a right margin of 5px to give the text for each bullet point some room to breath. It's also worth noticing that we've set list-style: none on the parent <ul> element, which turns off the default dots that appear for bullet points.
+
+            To complete the drill below, you'll need to:
+
+            Create a ruleset that surrounds <blockquote>s in smart quotes (i.e, curly quotation marks). This means that any time a <blockquote> element appears, without putting quotation characters in your HTML, the block quote should get quotes before and after it. Create a ruleset for the .author class that puts an en dash (–) before it (you can see how we're using it in the HTML in this drill).
+        -->
+
+        <h1>5) ::before and ::after pseudolements</h1>
+        <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident nihil repellendus obcaecati vero ab neque saepe eligendi dolorum sit eos quibusdam labore ullam animi sapiente quia itaque velit sed, asperiores?</blockquote>
+        <p class='author'>Boaty McBoatface</p>
+  
+        <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A possimus totam voluptatem, explicabo fugiat dolor, earum est eveniet repellat quo, voluptate eum similique. Iste harum ipsam iusto officia. Explicabo, et!</blockquote>
+        <p class='author'>Foo Manchu Bar</p>
+
+
+        <!--
+            Drill six:
+
+            CSS provides four pseudoclasses for anchor elements:
+
+            a:link {
+                /* unvisited link */
+            }
+
+            a:visited {
+                /* visited link */
+            }
+
+            a:hover {
+                /* mouse over link */
+            }
+
+            a:active {
+                /* selected link (i.e., you've clicked
+                    but not released on the link)
+                */
+            }
+
+            Write style declarations for each anchor tag state, in the Codepen below, following these requirements:
+
+            -Unvisited links should be green
+            -When the user hovers over a link, it should get a larger font-size
+            -Visited links should be red
+            -Active links should be black
+        -->
+
+        <h1>6) Anchor pseudoclasses</h1>
+        <ul>
+            <li><a href="#">Cats</a></li>
+            <li><a href="#">Dogs</a></li>
+            <li><a href="#">Pigs</a></li>
+        </ul>
+
+        <!--
+            Drill seven:
+
+            CSS lets us target elements by attribute value. Common uses for this is targeting specific kinds of form inputs (for instance, input[type="radio"]to apply rules exclusively to radio selector inputs). We have several options of matching attribute value:
+
+            -Exact match: element[attribute=value]      (todos los atributos que contengan exactamente el mismo value)
+            -Match pattern anywhere in value: element[attribute*=value]     (todos los atributos que contengan el value en cualquier parte)
+            -Match pattern at beginning of value: element[attribute^=value] (todos los atributos que empiecen con cierto valor)
+            -Match pattern at end of value: element[attribute$=value]       (todos los atributos que terminen con cierto valor)
+            
+            To complete the drill below, you'll need to add a selector that targets attribute values. This Codepen contains images of dogs and cats. All dog images have source urls with the word "dog", and all cat images have source urls with the word "cat" in them.
+
+            Decide which you like better, dogs or cats. Activate the style rule at the bottom to select all images with source urls that have the losing animal's name. For instance, if you're a dog person, you'll write the selector so that cats get turned upside down.
+
+        -->
+
+        <h1>7) Attribute Selectors</h1>
+
+        <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/June_odd-eyed-cat.jpg/737px-June_odd-eyed-cat.jpg"></div>
+
+        <div><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Rob_Roy_%28dog%29.jpg"></div>
+
+        <div><img src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fstuffpoint.com%2Fcats%2Fimage%2F184228-cats-cute-weird-cat.jpg&f=1"></div>
+
+        <div><img src="https://upload.wikimedia.org/wikipedia/en/b/b7/Smoky_%28dog%29_in_helmet.jpg"></div>
+
+        <div><img src="http://vignette4.wikia.nocookie.net/harrypotter/images/7/7d/Blue-persian-cat-1-.jpg/revision/latest?cb=20101220161526"></div>
+
+        <div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Boxer_%28dog%29.jpg"></div>
+    </main>
+</body>
+</html>
