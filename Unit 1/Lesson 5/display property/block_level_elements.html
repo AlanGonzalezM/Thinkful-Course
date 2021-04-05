@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="block_level_elements.css">
+    <title>Block-level elements</title>
+</head>
+<body>
+    <!--In the Codepen above, the first paragraph contains a span element, and the second paragraph gets displayed on a new line, below the first paragraph. Note how we've also explicitly set a max-width for paragraph elements appearing in this Codepen (a common practice because it's hard for users to read overly wide paragraphs).-->
+
+    <main>
+        <div class="container-one">
+            <div class="inner-one"></div>
+            <div class="inner-two"></div>
+        </div>
+
+        <p>As you can see, <span class="blue">.inner-one defaults to takes up 100% of its <span class="red">parent's width</span> by default</span>, while <span class="green">only takes up 50% of its <span class="red">parent's width</span> because we have explicitly set the width property</span>.</p>
+    </main>
+</body>
+</html>

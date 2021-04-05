@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="horizontal_alignment.css">
+    <title>Horizontal Alignment</title>
+</head>
+<body>
+    <main>
+        <!--In order to horizontally center .container, we set its left and right margin values to auto. The total width of .container (200px) is less than the total width of the parent element (<main>); the auto values for margin tell the browser to take any extra space on the sides of .container and automatically divide it equally between the left and right sides.
+            
+        Know that this approach works only for block level elements. We discuss what this means in depth later in this lesson, but for now know that there are block level elements which by default extend to the full width of their parent container, and there are inline elements, which take up only as much space as is required by the text that appears inside of them. In our example above, <div> is a block level element whose width we've limited to 200px.
+
+        margin-left: auto; margin-right: auto is valuable recipe that you should memorize. Whenever you need to horizontally center a block level content within some parent element, this technique is your friend. By setting left and right margins to auto, it ensures that the element will remain centered, even if its parent element changes in size or moves.-->
+
+        <h1>Horizontal centering with margin: auto </h1>
+        <div class="container"></div>
+    </main>
+</body>
+</html>

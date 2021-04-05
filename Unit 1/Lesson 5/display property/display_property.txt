@@ -1,0 +1,15 @@
+The display property determines how an element's block is rendered in the browser (recall that we learned that all HTML elements are blocks, as described by the box model).
+
+*INLINE ELEMENTS*
+
+An inline element – for example, a, code, em, or span– doesn't start on a new line and usually does not contain additional elements, but instead just contains text. You can't explicitly set the width,height, margin, or padding of an inline element; instead, its dimensions are determined by how much space its contents require. However, the text in an inline element can be set to a large or smaller font-size or different color, and it will be different than the text around it.
+
+*BLOCK LEVEL ELEMENTS*
+
+A block-level element has the opposite qualities. It gets displayed on a new line (and takes up the whole available line), may contain additional block-level or inline elements, and its height and width can be explicitly set.
+
+By default, block-level elements will take up the entire width of whatever element they appear inside of, but we can override this by explicitly setting the width or max-width property on an element.
+
+*INLINE-BLOCK ELEMENTS*
+
+The final display value we'll discuss here is inline-block, which combine characteristics of both inline and block-level elements. An inline-block element displays inline like a span or a element, but you can give it an explicit width, height, margin, and padding. This can be a good approach when you need to create elements with a set width, but you also need them to display side by side.

@@ -1,0 +1,12 @@
+main {
+    padding-top: 120px;
+    background: url("https://ccdigitalenterprise.files.wordpress.com/2013/10/office-team-using-laptop.jpg") no-repeat;
+    background-size: contain;
+    min-height: 800px;
+}
+
+header {
+    text-align: center;
+    color: red;
+    text-shadow: 1px 1px black;
+}
